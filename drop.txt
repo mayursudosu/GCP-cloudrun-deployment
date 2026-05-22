@@ -1,0 +1,19 @@
+How to Turn Off and Turn On My Cloud Run App
+1. How to Turn it OFF (Delete the service to stop traffic and potential costs)
+Whenever you want to take your site offline, simply run this command in your Fedora terminal:
+
+gcloud run services delete my-app --region us-central1
+
+2. How to Turn it ON (Redeploy the existing image)
+When you are ready to bring the website back online, you just tell Cloud Run to spin up the image from Artifact Registry again:
+
+gcloud run deploy my-app \
+  --image us-central1-docker.pkg.dev/project-0118aaef-0641-43ce-8e4/my-repo/my-app:v1 \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated
+
+3. How to check if it is running
+To see a list of all your live Cloud Run services and their URLs:
+
+gcloud run services list
