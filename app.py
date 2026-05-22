@@ -296,6 +296,8 @@ game = setInterval(draw, 100);
 
 @app.route("/")
 def home():
+    # INTENTIONAL BUG FOR INCIDENT RESPONSE PHASE
+    1 / 0
     return render_template_string(HTML)
 
 if __name__ == "__main__":
